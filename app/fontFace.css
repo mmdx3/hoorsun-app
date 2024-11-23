@@ -1,0 +1,138 @@
+@font-face {
+  font-family: "IRANYekan";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/font/iranyekan/woff2/IRANYekanXFaNum-Regular.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: "IRANYekan";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/font/iranyekan/woff2/IRANYekanXFaNum-Medium.woff2") format("woff2");
+}
+@font-face {
+  font-family: "IRANYekan";
+  font-style: normal;
+  font-weight: 600;
+  src: url("/font/iranyekan/woff2/IRANYekanXFaNum-DemiBold.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: "IRANYekan";
+  font-style: normal;
+  font-weight: bold;
+  src: url("/font/iranyekan/woff2/IRANYekanXFaNum-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Vazir";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/font/Vazir/Vazir-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "VazirFD";
+  font-style: normal;
+  font-weight: bold;
+  src: url("/font/Vazir/Farsi-Digits/Vazir-Bold-FD.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Dana";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/font/Dana-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Dana";
+  font-style: normal;
+  font-weight: 600;
+  src: url("/font/Dana-DemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Dana";
+  font-style: normal;
+  font-weight: bold;
+  src: url("/font/Dana-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "DanaFanum";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/font/dana-fanum-medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Satoshi";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/font/satoshi-medium.woff") format("woff");
+}
+@font-face {
+  font-family: "IRANYekan";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/font/iranyekan/woff2/IRANYekanXFaNum-Regular.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: "IRANYekan";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/font/iranyekan/woff2/IRANYekanXFaNum-Medium.woff2") format("woff2");
+}
+@font-face {
+  font-family: "IRANYekan";
+  font-style: normal;
+  font-weight: 600;
+  src: url("/font/iranyekan/woff2/IRANYekanXFaNum-DemiBold.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: "IRANYekan";
+  font-style: normal;
+  font-weight: bold;
+  src: url("/font/iranyekan/woff2/IRANYekanXFaNum-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Vazir";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/font/Vazir/Vazir-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "VazirFD";
+  font-style: normal;
+  font-weight: bold;
+  src: url("/font/Vazir/Farsi-Digits/Vazir-Bold-FD.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Dana";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/font/Dana-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Dana";
+  font-style: normal;
+  font-weight: 600;
+  src: url("/font/Dana-DemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Dana";
+  font-style: normal;
+  font-weight: bold;
+  src: url("/font/Dana-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "DanaFanum";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/font/dana-fanum-medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Satoshi";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/font/satoshi-medium.woff") format("woff");
+}
