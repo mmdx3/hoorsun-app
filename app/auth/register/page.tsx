@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image'
 import BgDesktop from '@/public/images/register&loginBg.png'
 import BgMobile from '@/public/images/registerMobileBg.png'
@@ -6,8 +7,13 @@ import RegisterForm from './components/RegisterForm'
 import Hidden from '@/app/components/ui/Hidden'
 import HorsunText from '@/public/icon/HorsunText.svg'
 import LogoImg from '@/public/icon/Logo.svg'
+import { useSelector } from 'react-redux'
+import { RootState } from '@/app/context/RootReducer'
+import OtpVerification from './components/OtpVerification'
 
 const page = () => {
+  const step = useSelector((state: RootState) => state.auth.step)
+
   return (
     <div className='w-full h-screen relative z-10 '>
       <Image
@@ -46,7 +52,7 @@ const page = () => {
             <Image src={LogoImg} alt='' className={`w-[27px] h-[25px]`} />
           </div>
         </Hidden>
-        <RegisterForm />
+        {step === 1 ? <RegisterForm /> : <OtpVerification />}
       </div>
     </div>
   )

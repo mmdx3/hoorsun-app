@@ -46,7 +46,7 @@ const Input = ({
           <Image src={icon} alt='' className='size-[21px] xl:size-[24px] ' />
         </div>
         <span className='text-red-600 font-dana font-medium text-[11px] xl:text-[13px]'>
-          {error && error[0]}
+          {error && error[0] !== '' && error[0]}
         </span>
       </div>
     </div>

@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   env: {
-    APP_BUILD_MANIFEST_URL: 'http://localhost:3000',
+    NEXT_PUBLIC_API_URL: 'http://localhost:3000',
     MONGO_URL: process.env.MONGO_URI,
     KAVENEGAR_API_KEY: process.env.KAVENEGAR_API_KEY,
     REDIS_PASSWORD: process.env.REDIS_PASSWORD,

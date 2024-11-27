@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import userSvg from '@/public/icon/userFormIcon.svg'
 import MobileIcon from '@/public/icon/Mobile.svg'
 import Input from '@/app/components/ui/Input'
@@ -8,9 +8,18 @@ import Link from 'next/link'
 import { useFormState } from 'react-dom'
 import RegisterServer from '@/app/actions/register'
 import useAlert from '@/app/hooks/useAlert'
+import { useDispatch, useSelector } from 'react-redux'
+import { RegisterUser, setStep } from '@/app/context/Features/auth/authSlice'
+import { RootState } from '@/app/context/RootReducer'
 
-const initialState = {
-  data: {},
+interface IinitialState {
+  data: { phoneNumber: string; fullname: string }
+  errors: { fullname: string[]; phoneNumber: string[] }
+  success: boolean
+  message: string
+}
+const initialState: IinitialState = {
+  data: { phoneNumber: '', fullname: '' },
   errors: { fullname: [], phoneNumber: [] },
   success: false,
   message: ''
@@ -18,13 +27,18 @@ const initialState = {
 
 const RegisterForm = () => {
   const [state, action] = useFormState(RegisterServer, initialState)
-  const Toast  = useAlert()
+  const dispatch = useDispatch()
+  const Toast = useAlert()
   useEffect(() => {
-    if (state?.message  !== '') {
+    if (state?.message !== '') {
       Toast.fire({
         icon: state?.success ? 'success' : 'error',
         title: state?.message
       })
+    }
+    if (state?.success) {
+      dispatch(RegisterUser(state?.data))
+      dispatch(setStep(2))
     }
   }, [state])
   return (
@@ -39,7 +53,6 @@ const RegisterForm = () => {
       </div>
       <form
         action={action}
-        method='POST'
         className='w-[269px] xl:w-[306px] h-[268px] xl:h-[304px] gap-[24px] xl:gap-[28px] flex flex-col items-end justify-start text-right '
       >
         {/* input */}

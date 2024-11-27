@@ -2,11 +2,12 @@
 import mongoose, { Document, Schema } from "mongoose";
 
 //NOTE: create a new User interface for user model
-interface IUser extends Document {
+export interface IUser extends Document {
   fullName: string;
   phoneNumber: string;
   createdAt: Date;
   type: number;
+
   address: string;
   //NOTE: add other fields as needed
 }

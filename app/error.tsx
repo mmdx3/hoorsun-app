@@ -19,7 +19,7 @@ export default function Error ({
               مشکل در اتصال به اینترنت ، لطفا از اتصال خود به اینترنت اطمینان
               حاصل فرمایید
             </h2>
-            <button className='btn-primary px-6 py-3' onClick={() => reset()}>
+            <button className='bg-blue-500 rounded-lg text-white px-6 py-3' onClick={() => reset()}>
               تلاش دوباره
             </button>
           </div>

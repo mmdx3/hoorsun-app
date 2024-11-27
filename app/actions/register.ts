@@ -3,6 +3,7 @@
 import { z } from "zod";
 import User from "../models/User";
 import sendOtp from "../service/sendOtp";
+import dbConnect from "../utils/dbConnect";
 
 // Zod schema
 const mySchema = z.object({
@@ -41,9 +42,9 @@ export default async function RegisterServer(
     }
 
     // بررسی وجود کاربر در دیتابیس
+    dbConnect();
     const existingUser = await User.findOne({ phoneNumber }).exec();
     if (existingUser) {
-      User.findOneAndDelete({ phoneNumber }).exec();
       return {
         data: {},
         errors: { phoneNumber: ["این شماره قبلاً ثبت شده است."] },
@@ -53,17 +54,16 @@ export default async function RegisterServer(
     }
 
     const otpSend = await sendOtp(phoneNumber as string);
+    
     if (otpSend) {
       return {
-        data: {},
-        errors: {},
+        data: { fullname: fullname ,  phoneNumber: phoneNumber , isverified: false },
+        errors: {phoneNumber:[''] , fullname:['']},
         success: true,
         message: `کد تایید : ${otpSend} به شماره ${phoneNumber} ارسال شد. `,
       };
     }
   } catch (error: any) {
-    console.error(error);
-
     if (error.isAxiosError) {
       return {
         data: {},
