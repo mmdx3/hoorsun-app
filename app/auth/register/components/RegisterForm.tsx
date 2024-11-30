@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import userSvg from '@/public/icon/userFormIcon.svg'
 import MobileIcon from '@/public/icon/Mobile.svg'
 import Input from '@/app/components/ui/Input'
@@ -8,18 +8,17 @@ import Link from 'next/link'
 import { useFormState } from 'react-dom'
 import RegisterServer from '@/app/actions/register'
 import useAlert from '@/app/hooks/useAlert'
-import { useDispatch, useSelector } from 'react-redux'
-import { RegisterUser, setStep } from '@/app/context/Features/auth/authSlice'
-import { RootState } from '@/app/context/RootReducer'
+import { useDispatch } from 'react-redux'
+import { AddUser, setStep } from '@/app/context/Features/auth/authSlice'
 
 interface IinitialState {
-  data: { phoneNumber: string; fullname: string }
+  data: { phoneNumber: string; fullname: string , isVerified : boolean }
   errors: { fullname: string[]; phoneNumber: string[] }
   success: boolean
   message: string
 }
 const initialState: IinitialState = {
-  data: { phoneNumber: '', fullname: '' },
+  data: { phoneNumber: '', fullname: '' , isVerified: false},
   errors: { fullname: [], phoneNumber: [] },
   success: false,
   message: ''
@@ -37,7 +36,7 @@ const RegisterForm = () => {
       })
     }
     if (state?.success) {
-      dispatch(RegisterUser(state?.data))
+      dispatch(AddUser(state?.data))
       dispatch(setStep(2))
     }
   }, [state])

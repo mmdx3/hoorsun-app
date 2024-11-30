@@ -4,7 +4,7 @@ import { getUserData } from "./authAction";
 interface IinitialState {
   user:
     | {
-        fullName: string;
+        fullName?: string;
         phoneNumber: string;
         userId?: string;
         isVerified?: boolean;
@@ -28,7 +28,7 @@ const AuthSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    RegisterUser: (state, action: any) => {
+    AddUser: (state, action: any) => {
       state.user = { ...action.payload };
     },
     setStep: (state, action: PayloadAction<1 | 2>) => {
@@ -49,5 +49,5 @@ const AuthSlice = createSlice({
   },
 });
 
-export const { RegisterUser, setStep } = AuthSlice.actions;
+export const { AddUser, setStep } = AuthSlice.actions;
 export default AuthSlice.reducer;

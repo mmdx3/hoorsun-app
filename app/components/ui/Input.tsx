@@ -33,7 +33,7 @@ const Input = ({
       >
         {label}
       </label>
-      <div className='w-full flex flex-col gap-0.5'>
+      <div className='w-full flex flex-col gap-[4px]'>
         <div className='w-full h-[38px] xl:h-[44px] rounded-[8px] border-[1px] border-[#D6D6D6]  p-[8px] gap-[3px] xl:gap-[8px] flex justify-center items-center '>
           <input
             type={type}

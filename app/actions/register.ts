@@ -34,7 +34,7 @@ export default async function RegisterServer(
     });
     if (!validation.success) {
       return {
-        data: {},
+        data: { phoneNumber: "", fullname: "", isVerified: false },
         errors: validation.error.flatten().fieldErrors,
         success: false,
         message: "اطلاعات وارد شده معتبر نیست.",
@@ -46,7 +46,7 @@ export default async function RegisterServer(
     const existingUser = await User.findOne({ phoneNumber }).exec();
     if (existingUser) {
       return {
-        data: {},
+        data: { phoneNumber: "", fullname: "", isVerified: false },
         errors: { phoneNumber: ["این شماره قبلاً ثبت شده است."] },
         success: false,
         message: "کاربری با این شماره تلفن وجود دارد.",
@@ -54,11 +54,15 @@ export default async function RegisterServer(
     }
 
     const otpSend = await sendOtp(phoneNumber as string);
-    
+
     if (otpSend) {
       return {
-        data: { fullname: fullname ,  phoneNumber: phoneNumber , isverified: false },
-        errors: {phoneNumber:[''] , fullname:['']},
+        data: {
+          fullname: fullname,
+          phoneNumber: phoneNumber,
+          isverified: false,
+        },
+        errors: { phoneNumber: [""], fullname: [""] },
         success: true,
         message: `کد تایید : ${otpSend} به شماره ${phoneNumber} ارسال شد. `,
       };
@@ -66,16 +70,16 @@ export default async function RegisterServer(
   } catch (error: any) {
     if (error.isAxiosError) {
       return {
-        data: {},
-        errors: {},
+        data: { phoneNumber: "", fullname: "", isVerified: false },
+        errors: { phoneNumber: [""], fullname: [""] },
         success: false,
         message: "خطا در ارسال پیامک. لطفاً بعداً تلاش کنید.",
       };
     }
 
     return {
-      data: {},
-      errors: {},
+      data: { phoneNumber: "", fullname: "", isVerified: false },
+      errors: { phoneNumber: [""], fullname: [""] },
       success: false,
       message: "یک خطای غیرمنتظره رخ داده است.",
     };

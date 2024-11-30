@@ -1,4 +1,5 @@
 import User from "@/app/models/User";
+import verifyOtp from "@/app/service/verifyOtp";
 import redisService from "@/app/utils/redisService";
 import { IUserModel } from "@/type";
 import { NextRequest, NextResponse } from "next/server";
@@ -14,18 +15,29 @@ export const POST = async (req: NextRequest) => {
       });
     }
 
-    // اتصال به Redis
     await redisService.connect();
+    const verifydOtp = await verifyOtp(otp, userData.phoneNumber as string);
 
-    const storedOtp = await redisService.get(`otp:${userData.phoneNumber}`);
-    if (!storedOtp) {
-      await redisService.disconnect(); // بستن اتصال در صورت نیاز
-      return new Response("کد تایید منقضی شده است", { status: 400 });
-    }
-
-    if (storedOtp !== otp) {
-      await redisService.disconnect(); // بستن اتصال در صورت نیاز
+    if (!verifydOtp) {
+      await redisService.disconnect();
       return new Response("کد تایید اشتباه است", { status: 400 });
+    }
+    //  For login 
+    const user :IUserModel = await User.findOne({
+      phoneNumber: userData.phoneNumber,
+    }).exec();
+    if (user) {
+      await redisService.disconnect();
+      return NextResponse.json({
+        success: true,
+        message: "با موفقیت وارد شدید :)",
+        data: {
+          userId: user._id,
+          fullName: user.fullName,
+          phoneNumber: user.phoneNumber,
+          isVerified: true,
+        },
+      });
     }
 
     // ایجاد کاربر جدید
@@ -36,25 +48,21 @@ export const POST = async (req: NextRequest) => {
 
     await newuser.save();
 
-
-    await redisService.del(`otp:${userData.phoneNumber}`);
-    
     const response = NextResponse.json({
       success: true,
       message: "با موفقیت ثبت نام شدید :)",
       data: {
-        userId : newuser._id,
+        userId: newuser._id,
         fullName: newuser.fullName,
         phoneNumber: newuser.phoneNumber,
         isVerified: true,
-      }
+      },
     });
-
     await redisService.disconnect();
     return response;
   } catch (error) {
-    console.error("Error parsing request:", error);
     await redisService.disconnect();
+    console.error("Error parsing request:", error);
     return new Response("there is an error", { status: 400 });
   }
 };

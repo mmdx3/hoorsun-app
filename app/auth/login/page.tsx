@@ -2,22 +2,16 @@
 import Image from 'next/image'
 import BgDesktop from '@/public/images/register&loginBg.png'
 import BgMobile from '@/public/images/registerMobileBg.png'
-import HeroSection from './components/HeroSection'
-import RegisterForm from './components/RegisterForm'
 import Hidden from '@/app/components/ui/Hidden'
 import HorsunText from '@/public/icon/HorsunText.svg'
 import LogoImg from '@/public/icon/Logo.svg'
-import { useDispatch, useSelector } from 'react-redux'
-import { RootState } from '@/app/context/RootReducer'
-import { setStep } from '@/app/context/Features/auth/authSlice'
+import HeroSection from './components/HeroSection'
+import { useState } from 'react'
+import LoginForm from './components/LoginForm'
 import OtpVerification from '@/app/components/ui/OtpVerification'
 
 const page = () => {
-  const dispatch = useDispatch()
-  const step = useSelector((state: RootState) => state.auth.step)
-  const setstep = (number: 1 | 2) => {
-    dispatch(setStep(number))
-  }
+  const [step, setStep] = useState(1)
 
   return (
     <div className='w-full h-screen relative z-10 '>
@@ -57,7 +51,7 @@ const page = () => {
             <Image src={LogoImg} alt='' className={`w-[27px] h-[25px]`} />
           </div>
         </Hidden>
-        {step === 1 ? <RegisterForm /> : <OtpVerification setStep={setstep} btnlabel='تایید و ثبت نام' />}
+        {step === 1 ? <LoginForm setStep={setStep} /> : <OtpVerification setStep={setStep} btnlabel='ورود'/>}
       </div>
     </div>
   )

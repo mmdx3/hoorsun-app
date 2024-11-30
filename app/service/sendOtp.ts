@@ -6,7 +6,7 @@ export default async function sendOtp(phoneNumber: string) {
     //TODO: connect to a real api server
     //   save sended otp to redis
     redisService.connect();
-    redisService.set(`otp:${phoneNumber}`, otp.toString(), 120);
+    redisService.set(`otp:${phoneNumber}`, otp.toString(), 180);
     return otp;
   } catch (err) {
     throw new Error("there was an error");
