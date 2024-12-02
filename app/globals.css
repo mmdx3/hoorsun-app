@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-@import 'fontface.css';
+@import "fontface.css";
 
 :root {
-  --font-iran-yekan: 'IRANYekan';
+  --font-iran-yekan: "IRANYekan";
   --font-vazir: "Vazir";
   --font-vazir-FD: "VazirFD";
   --font-dana: "Dana";
@@ -22,22 +22,19 @@ body {
 }
 
 .register-bg {
-  background-image: url('/public/images/registermobileBg.png');
+  background-image: url("/public/images/registermobileBg.png");
   background-size: cover;
   background-repeat: no-repeat;
   opacity: 32%;
 }
 
-
-
 @media (max-width: 768px) {
   .register-bg {
-    background-image: url('/public/images/register&loginBgMobile.png');
+    background-image: url("/public/images/register&loginBgMobile.png");
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 32%;
   }
-
 }
 
 /* for disable autofill input background */
@@ -49,4 +46,14 @@ input:-webkit-autofill:active {
 
   transition: background-color 5000000000000s ease-in-out 0s;
   /* box-shadow: inset 0 0 20px 20px #23232329; */
+}
+
+@layer base {
+  .dir-ltr {
+    direction: ltr;
+  }
+
+  .dir-rtl {
+    direction: rtl;
+  }
 }
