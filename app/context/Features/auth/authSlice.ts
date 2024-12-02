@@ -29,6 +29,7 @@ const AuthSlice = createSlice({
   initialState,
   reducers: {
     AddUser: (state, action: any) => {
+      window.localStorage.setItem("user", JSON.stringify(action.payload));
       state.user = { ...action.payload };
     },
     setStep: (state, action: PayloadAction<1 | 2>) => {

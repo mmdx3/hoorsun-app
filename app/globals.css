@@ -28,6 +28,8 @@ body {
   opacity: 32%;
 }
 
+
+
 @media (max-width: 768px) {
   .register-bg {
     background-image: url('/public/images/register&loginBgMobile.png');
@@ -35,6 +37,7 @@ body {
     background-repeat: no-repeat;
     opacity: 32%;
   }
+
 }
 
 /* for disable autofill input background */
