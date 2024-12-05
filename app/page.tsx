@@ -7,6 +7,10 @@ import FeedbackSection from './components/home/FeedbackSection'
 import PopularFoodSection from './components/home/popularFoodSection'
 import NewstFoodSection from './components/home/NewstFoodSection'
 import PopularBurger from './components/home/popularBurger'
+import ReserVationOnline from './components/home/ReserVationOnline'
+import SocialMediaBanner from './components/ui/SocialMediaBanner'
+import PopularPizzaSection from './components/home/PopularPizzaSection'
+import DiscountBanner from './components/home/DiscountBanner'
 export default function Home () {
   return (
     <>
@@ -23,6 +27,10 @@ export default function Home () {
         <PopularFoodSection/>
         <NewstFoodSection />
         <PopularBurger />
+        <ReserVationOnline />
+        <SocialMediaBanner />
+        <PopularPizzaSection />
+        <DiscountBanner />
       </main>
       <Footer />
     </>

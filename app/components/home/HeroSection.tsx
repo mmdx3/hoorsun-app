@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import HeroSectionImg from '@/public/images/HeroSectionHome.png'
 import Calling from '@/public/icon/Calling.svg'
+import Button from '../ui/Button'
 const HeroSection = () => {
   return (
     <div className='w-full 2xl:h-[510px] lg:py-[34px] gap-[11px] flex flex-col md:flex-row items-center  lg:justify-center'>
@@ -28,16 +29,14 @@ const HeroSection = () => {
           </p>
         </div>
         <div className='w-[388px] h-[58px] gap-[23px] flex justify-center items-center'>
-          <button className='w-[214px] h-[58px] bg-[#F6B529] rounded-[16px] py-[17px] px-[36px]  text-white font-dana text-[20px] flex gap-[2px] active:scale-[.85] transition-all duration-300 ease-linear '>
+          <button className='w-[214px] h-[58px] bg-[#F6B529] rounded-[16px] py-[17px] px-[36px]  text-white font-dana text-[20px] flex gap-[2px] active:scale-[.85] transition-all overflow-hidden relative  hover:bg-[#f5c45a] active:opacity-75 outline-none duration-300 group '>
+            <span className='bg-white shadow-[#F6B529] absolute -top-[150%] left-0 inline-flex w-full h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]'></span>
             <span className='font-dana font-semibold text-[16px] text-[#3b3b3b] '>
               تماس با هورسان
             </span>
             <Image src={Calling} alt='' className='size-[24px]' />
-            
           </button>
-          <button className='w-[151px] h-[57px] bg-[#D51F26] rounded-[16px] py-[17px] px-[36px] text-white font-dana  active:scale-[.85] transition-all duration-300 ease-linear'>
-            مشاهده منو
-          </button>
+          <Button text='مشاهده منو' />
         </div>
       </div>
     </div>

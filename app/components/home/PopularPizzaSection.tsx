@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import Vector190 from '@/public/icon/vector190.svg'
-import BurgerImg from '@/public/images/burgerIcon.png'
+import PizzaImg from '@/public/images/Pizzaicon.png'
 import FoodList from '../ui/FoodList'
-const PopularBurger = () => {
+const PopularPizzaSection = () => {
   return (
     <div className='w-full mt-4 h-[562px] gap-[43px] flex flex-col items-center justify-center container mx-auto'>
       <div className='max-w-[1267px] w-full mx-auto  flex justify-between items-center relative z-10 '>
@@ -14,14 +14,14 @@ const PopularBurger = () => {
             </p>
           </button>
           <h3 className='font-bold font-danafanum text-[30px] leading-[39px] text-black '>
-            محبوب ترین <span className='text-white font-vazir'> برگر ها</span>
+            محبوب ترین <span className='text-white font-vazir'>   پیتزا ها</span>
           </h3>
         </div>
         <div className='w-[138px] h-[42px] rounded-[8px] rotate-[-6deg] bg-[#D51F26] z-0 absolute top-[0] right-[153px]'></div>
         <Image
-          src={BurgerImg}
+          src={PizzaImg}
           alt=''
-          className='w-[56px]  h-[79px] object-cover absolute  right-[237px] top-[-33px]'
+          className='w-[58px]  h-[39px] object-cover absolute  right-[251px] top-0'
         />
       </div>
       {/* Foods list */}
@@ -30,4 +30,4 @@ const PopularBurger = () => {
   )
 }
 
-export default PopularBurger
+export default PopularPizzaSection
