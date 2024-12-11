@@ -13,6 +13,7 @@ const FaceBookIcon = ({
       height={h}
       viewBox='0 0 50 51'
       fill='none'
+      className='max-lg:size-[24px] lg:size-[51px]'
       xmlns='http://www.w3.org/2000/svg'
     >
       <path

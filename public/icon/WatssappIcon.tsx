@@ -1,17 +1,18 @@
 const WatssappIcon = ({
-   color="white",
-   w='50',
-   h='51'
- }: {
-   color?: string
-   w?: string
-   h?: string
- }) => {
+  color = 'white',
+  w = '50',
+  h = '51'
+}: {
+  color?: string
+  w?: string
+  h?: string
+}) => {
   return (
     <svg
       width={w}
       height={h}
       viewBox='0 0 51 51'
+      className='max-lg:size-[24px] lg:size-[51px]'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >

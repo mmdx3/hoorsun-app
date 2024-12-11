@@ -12,6 +12,7 @@ const YouTubeIcon = ({
       width={w}
       height={h}
       viewBox='0 0 51 51'
+      className='max-lg:size-[24px] lg:size-[51px]'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >

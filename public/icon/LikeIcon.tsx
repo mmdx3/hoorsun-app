@@ -6,7 +6,7 @@ const LikeIcon = ({ isBlack }: { isBlack: boolean }) => {
       viewBox='0 0 24 20'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
-      className="active:scale-[0.8] transition-all duration-300 ease-linear "
+      className="active:scale-[0.8] transition-all duration-300 ease-linear max-lg:w-[17px] max-lg:h-[14px]"
     >
       <path
         fill-rule='evenodd'
