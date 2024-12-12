@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image'
 import UserIcon from '@/public/icon/User.svg'
 import CartIcon from '@/public/icon/CartIcon.svg'
@@ -7,15 +8,25 @@ import Logo from '@/public/icon/Logo.svg'
 import HoorsunText from '@/public/icon/HorsunText.svg'
 import HamburgerMenu from '@/public/icon/Hamburgermenu.svg'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
 const NavLink = [
-  { name: 'صفحه اصلی', url: '/' },
-  { name: 'رزرو غذا', url: '/reservation' },
-  { name: 'مقالات', url: '/articles' },
+  { name: 'تماس با ما', url: '/contact' },
   { name: 'درباره ما', url: '/about' },
-  { name: 'تماس با ما', url: '/contact' }
+  { name: 'مقالات', url: '/articles' },
+  { name: 'رزرو غذا', url: '/reservation' },
+  { name: 'صفحه اصلی', url: '/' }
 ]
 const Header = () => {
+  const pathname = usePathname()
+  const [hasDownloadApp, setHasDownloadApp] = useState(true)
+
+  useEffect(() => {
+    if (pathname !== '/') {
+      setHasDownloadApp(false)
+    }
+  }, [pathname, hasDownloadApp])
   return (
     <header className='max-w-[354px] md:max-w-[1320px] h-[24px] md:h-[75px]  mx-auto'>
       <div className='w-full h-full flex justify-center items-center py-3 md:py-5 z-10 mx-auto mt-3 gap-[255px] md:gap-[230px]'>
@@ -29,12 +40,14 @@ const Header = () => {
           <div className='bg-white size-[48px] rounded-[8px]  shadow-lg'>
             <Image src={SearchIcon} alt='' className='cursor-pointer ' />
           </div>
-          <div className='bg-white size-[48px] rounded-[8px]  shadow-lg'>
-            <Image src={DownloadApp} alt='' className='cursor-pointer ' />
-          </div>
+          {hasDownloadApp && (
+            <div className='bg-white size-[48px] rounded-[8px]  shadow-lg'>
+              <Image src={DownloadApp} alt='' className='cursor-pointer ' />
+            </div>
+          )}
         </div>
         <ul className='w-[438px] h-[25px] gap-[36px]  justify-center items-center  md:flex hidden '>
-          {NavLink.reverse().map((item, index) => (
+          {NavLink.map((item, index) => (
             <li key={index}>
               <Link
                 href={item.url}
